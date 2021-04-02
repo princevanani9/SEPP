@@ -1,0 +1,29 @@
+{% extends "election/base.html" %}
+{% block content %}
+    {% for candidate in pos %}
+  <div class="row">
+   <div class="col-lg-2"><img src="{{candidate.1}}" class="img-thumbnail" ></div class="col-lg-2">
+    	<div class="col-lg-2">
+		<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">{{candidate.0.name}}</button>
+	      <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+	      <div class="modal-content">
+          <div class="modal-header">
+           <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Past Experiences</h4>
+        </div>
+         <div class="modal-body">
+           {{candidate.0.Description}}
+         </div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+         </div>
+        </div>
+	    </div>
+      </div>
+            Total Votes : {{candidate.0.votes}}
+      </div><br>
+  </div>
+{% endfor %}
+
+{% endblock content %}
